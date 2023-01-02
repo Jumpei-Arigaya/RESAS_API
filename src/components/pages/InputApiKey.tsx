@@ -3,17 +3,19 @@ import { useGetPopulationData } from '../../hooks/api/useGetPopulationData'
 
 export const InputApiKey = () => {
     const { getPopulationData, prefecureName } = useGetPopulationData();
-    const [apiKey, setApiKey] = useState<string>();
+    const [apiKey] = useState<string>();
 
     useEffect(() => {
         getPopulationData();
+        // eslint-disable-next-line
     }, [])
     console.log(prefecureName)
 
     return (
         <div>
+            <h1>APIキーを入力してください。</h1>
             <div>{apiKey}</div>
-            <input type="text" onChange={(e: string) => setApiKey(e)}></input>
+            <input type="text"></input>
         </div>
     )
 }
